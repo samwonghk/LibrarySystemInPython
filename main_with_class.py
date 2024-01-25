@@ -60,7 +60,7 @@ def checkin_book(book_name, user_name) -> None:
 
 def pay_fine(user_name, amount):
     """
-    Pay the find for specific user.
+    Pay the fine for specific user.
     """
     if users[user_name].fine == 0:
         print('There is no fine overdued.')
