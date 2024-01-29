@@ -23,13 +23,6 @@ users = {
     '00005': library.User('Eger')
 }
 
-# Menu Items: desc is item description, function is the function to be called with exec()
-menu = {
-    1: { 'desc': 'Borrow a Book', 'function': 'checkout_info()' },
-    2: { 'desc': 'Return a Book', 'function': 'checkin_info()' },
-    3: { 'desc': 'Pay fine', 'function': 'pay_fine_info()' },
-    4: { 'desc': 'Exit', 'function': 'quit()' }
-}
 
 NO_BOOK_PER_USER = library.NO_BOOK_PER_USER
 FINE_PER_DAY = library.FINE_PER_DAY
@@ -104,7 +97,7 @@ def show_menu():
         selection = int(input('Selection: '))
         function = menu[selection]['function']
         # print(function)
-        exec(function)
+        function()
     except ValueError:
         print('Please enter a valid menu number')
     except KeyError:
@@ -202,6 +195,14 @@ def pay_fine_info(user_id = None):
     print()
     print()
     return
+
+# Menu Items: desc is item description, function is the function to be called with exec()
+menu = {
+    1: { 'desc': 'Borrow a Book', 'function': checkout_info },
+    2: { 'desc': 'Return a Book', 'function': checkin_info },
+    3: { 'desc': 'Pay fine', 'function': pay_fine_info },
+    4: { 'desc': 'Exit', 'function': quit }
+}
 
 # Main program
 if __name__ == '__main__':
